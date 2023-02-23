@@ -1,0 +1,113 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "transducer", sans-serif;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+nav {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding: 12px;
+  width: 100%;
+}
+#contact-logos {
+  align-items: flex-end;
+  display: flex;
+}
+nav img {
+  max-width: 40px;
+}
+nav img:hover {
+  filter: invert(100%);
+}
+.icon-container.github {
+  margin-right: 24px;
+}
+#main-logo {
+  font-size: 32px;
+}
+#hamburger {
+  display: flex;
+}
+.general-transistion {
+  transition-timing-function: ease;
+  transition-duration: 0.7s;
+}
+.icon-container {
+  transition-property: background-color;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  padding: 8px;
+}
+.icon-container:hover {
+  background-color: #000;
+}
+nav img {
+  filter: invert(0%);
+  transition-property: filter;
+}
+.icon-container:hover img {
+  filter: invert(100%);
+}
+#intro {
+  box-shadow: 0 3px 34px 0px #0000001a;
+  transition: top ease-in-out 1.5s;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: #fff;
+  font-size: 121px;
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+  z-index: 10;
+  top: 0;
+}
+#intro span {
+  justify-content: center;
+  top: calc(50vh - 25px);
+  align-items: center;
+  position: absolute;
+  display: flex;
+  height: 50px;
+}
+#intro.remove {
+  top: -100vh;
+}
+#force-intro {
+  z-index: 20;
+  height: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  overflow: hidden;
+}
+#force-intro::-webkit-scrollbar {
+  display: none;
+}
+#force-intro.scroll {
+  overflow: scroll;
+}
+#force-intro div {
+  height: 200%;
+  width: 100%;
+}
