@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylesheets/style.css">
   <link rel="stylesheet" href="https://use.typekit.net/cma2dqf.css">
+  <link rel="icon" href="assets/images/black-on-white.ico">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script defer src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script defer src="js/main.js"></script>
@@ -13,17 +14,14 @@
 </head>
 <body>
 
-  <div id="force-intro">
-    <div></div>
-  </div>
-  <div id="intro">
+  <div id="intro" class="bottom-shadow viewing no-scroll">
     <span>{&nbsp;&nbsp;&nbsp;}</span>
   </div>
-  <nav>
+  <nav class="bottom-shadow">
     <div id="hamburger" class="icon-container general-transistion">
       <img class="general-transistion" src="assets/images/hamburger.svg" alt="Hamburger menu.">
     </div>
-    <div id="main-logo" class="icon-container">
+    <div id="main-logo">
       <!-- <img src="assets/images/main-logo.png" alt="Main logo"> -->
       <span>{ JACK RAINEY }</span>
     </div>
@@ -36,7 +34,19 @@
       </a>
     </div>
   </nav>
-  <main>
+  <main class="no-scroll">
+    <div class="first section test viewing">
+      <span>First Section</span>
+    </div>
+    <div class="projects section test">
+      <span>projects Section</span>
+      <div class="chess"></div>
+      <div class="project-playlist"></div>
+      <div class="job-tracker"></div>
+    </div>
+    <div class="about section test">
+      <span>About Section</span>
+    </div>
   </main>
 </body>
 </html>
