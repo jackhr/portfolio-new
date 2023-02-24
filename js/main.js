@@ -2,22 +2,38 @@ $(document).ready(function() {
   $("#intro").removeClass('no-scroll');
 });
 
-$('#intro, main').on('mousewheel DOMMouseScroll', function(e) {
-  const delta = e.originalEvent.wheelDelta || -e.originalEvent.detail;
-  const getSibling = delta => delta > 0 ? 'prev' : 'next';
+let lastY;
+$('#intro, main').on('touchstart', function(e) {
+  lastY = e.originalEvent.touches[0].clientY;
+}).on('mousewheel DOMMouseScroll touchmove', function(e) {
+  
+  const mobileScroll = e.type === 'touchmove';
   const threshold = 120;
+  // Delta will mainly tell if user is scrolling up of down
+  let delta;
 
-  if (delta > threshold*-1 && delta < threshold) return;
+  if (mobileScroll) {
+    const currentY = e.originalEvent.touches[0].clientY;
+    delta = currentY - lastY;
+    lastY = currentY;
+  } else {
+    delta = e.originalEvent.wheelDelta || -e.originalEvent.detail;
+  }
+
+  if (!mobileScroll && delta > threshold*-1 && delta < threshold) return;
 
   if (this.id === 'intro') {
     if (delta > 0 && $(this).scrollTop() === 0) {
+      // If scrolling up on intro then return
       return e.preventDefault();
     }
 
     if (this.id === 'intro') {
+      // Slide up intro
       $(this).removeClass('viewing');
       setTimeout(() => {
         $(this).remove();
+        // Make main scrollable
         $("main").removeClass('no-scroll');
       }, 1500);
       return;
@@ -42,22 +58,19 @@ $('#intro, main').on('mousewheel DOMMouseScroll', function(e) {
     e.preventDefault();
     return $(main).removeClass('scrolling');
   }
-  
+
+  // Function to determine which sibling to scroll to
+  const getSibling = delta => delta > 0 ? 'prev' : 'next';
   // Display next sectino to scroll to
   initialSection[getSibling(delta)]().addClass('viewing');
+  // Process factor to scroll by
+  const factor = initialSection.hasClass('projects') ? delta > 0 ? 0 : -2 : -1;
   // Make sure scroll value is maximum as possible to scroll fully
-  const top = $(main).height() * (delta / Math.abs(delta));
+  const top = $(initialSection).height() * factor;
   // Keep current section in viewport
-  main.scrollTo({
-    top,
-    left: 0,
-    behavior:'instant'
-  });
   // Finally scroll to new section
-  main.scrollTo({
-    top: top * -1,
-    left: 0,
-    behavior:'smooth'
+  $('main .section').css({
+    'transform': `translateY(${top}px)`,
   });
 
   setTimeout(() => {

@@ -72,9 +72,9 @@ nav img {
   position: absolute;
   background: #fff;
   font-size: 121px;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   display: flex;
-  width: 100vw;
   z-index: 10;
   top: -100vh;
 }
@@ -96,21 +96,17 @@ nav img {
   box-shadow: 0 3px 34px 0px #0000001a;
 }
 main {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
+  scroll-behavior: smooth;
+  will-change: scroll-position;
 }
 .section {
   height: 100%;
-  display: none;
-}
-.section.viewing {
-  display: block;
-}
-.section.viewing.test {
   display: flex;
-}
-.section.test {
   align-items: center;
   justify-content: center;
+  transform: translateY(0px);
+  transition: transform 1s cubic-bezier(0.15, 0.63, 0.38, 1);
 }
