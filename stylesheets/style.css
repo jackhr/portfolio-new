@@ -66,17 +66,18 @@ nav img {
   filter: invert(100%);
 }
 #intro {
-  transition: top ease-in-out 1.5s;
+  transition: height ease-in-out 1.5s;
   justify-content: center;
   align-items: center;
   position: absolute;
   background: #fff;
   font-size: 121px;
-  height: 100%;
   width: 100%;
   display: flex;
   z-index: 10;
-  top: -100vh;
+  height: 0px;
+  top: 0;
+  overflow: hidden;
 }
 #intro span {
   justify-content: center;
@@ -87,7 +88,7 @@ nav img {
   height: 50px;
 }
 #intro.viewing {
-  top: 0;
+  height: 100%;
 }
 .no-scroll {
   overflow: hidden;
@@ -109,4 +110,52 @@ main {
   justify-content: center;
   transform: translateY(0px);
   transition: transform 1s cubic-bezier(0.15, 0.63, 0.38, 1);
+}
+.white-bg {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#intro-initials-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: auto; */
+  position: absolute;
+  overflow: hidden;
+  top: calc(50vh - (326.229px/2));
+}
+#intro-initials-container img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#intro-initials-container img:first-child {
+  animation: rotate 10s linear infinite;
+  height: 50vh;
+  width: 50vw;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.first.section {
+  background: url("/assets/images/intro-background.jpg") no-repeat center;
+  background-size: cover;
+}
+.initial-dimentions {
+  width: 450px;
+  height: 326.229px;
+}
+.intro-text-white {
+  position: absolute;
+  top: calc(50vh - (326.229px/2) - 82.7px);
 }

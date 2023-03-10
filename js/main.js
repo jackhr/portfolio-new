@@ -78,7 +78,7 @@ $('#intro, main').on('touchstart', function(e) {
     initialSection.removeClass('viewing');
     // Allow user to scroll again
     $(main).removeClass('scrolling');
-  }, 1000);
+  }, 1200);
 
   
 });
