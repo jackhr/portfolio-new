@@ -148,7 +148,7 @@ main {
 }
 
 .first.section {
-  background: url("/assets/images/intro-background.jpg") no-repeat center;
+  background: url("../assets/images/intro-background.jpg") no-repeat center;
   background-size: cover;
 }
 .initial-dimentions {
