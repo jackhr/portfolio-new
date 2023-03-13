@@ -132,10 +132,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin: auto; */
   position: absolute;
   overflow: hidden;
   top: calc(50vh - (var(--intro-height)/2));
+  width: var(--intro-width);
+  height: var(--intro-height);
 }
 #intro-initials-container img {
   position: absolute;
@@ -162,8 +163,8 @@ main {
   background-size: cover;
 }
 .initial-dimentions {
-  width: var(--intro-width);
-  height: var(--intro-height);
+  width: calc(var(--intro-width) + 2px) !important;
+  height: calc(var(--intro-height) + 2px) !important;
 }
 .intro-text-white {
   position: absolute;
