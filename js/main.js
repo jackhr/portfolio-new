@@ -59,7 +59,10 @@ function initWelcomeType() {
     cursorChar: '<img src="assets/images/welcome-cursor.svg">',
     afterComplete: async (instance) => {
       instance.destroy();
-      $('html, body').removeClass('no-scroll');
+      $('#scroll-for-more').removeClass('hide');
+      setTimeout(() => {
+        $('html, body').removeClass('no-scroll');
+      }, 750);
     }
   }).go();
 }

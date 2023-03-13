@@ -179,6 +179,8 @@ main {
 .first.section {
   background: url("../assets/images/intro-background.jpg") no-repeat center;
   background-size: cover;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .initial-dimentions {
   width: calc(var(--intro-width) + 2px) !important;
@@ -198,24 +200,51 @@ main {
   font-size: 64px;
   display: flex;
   align-items: center;
+  margin-top: 25vh;
 }
 .ti-cursor {
   position: relative;
   left: 18px;
 }
+#scroll-for-more {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 5vh;
+  font-family: 'transducer';
+  color: #fff;
+  letter-spacing: 6px;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  transition: bottom ease-in-out 0.75s;
+}
+#scroll-for-more.hide {
+  bottom: -64px;
+}
+#scroll-for-more img {
+  width: 98px;
+  margin-top: 24px;
+}
 
 @media (max-width: 768px) {
   :root {
     --intro-width: 330px;
-    --nav-height: 68px;
+    --nav-height: 54px;
   }
   #main-logo {
-    font-size: 28px;
+    font-size: 24px;
+  }
+  nav {
+    padding: 0 8px;
   }
   nav img {
-    max-width: 32px;
+    max-width: 24px;
   }
   .icon-container.github {
-    margin-right: 12px;
+    margin-right: 0;
+  }
+  #welcome-text {
+    font-size: 54px;
   }
 }
