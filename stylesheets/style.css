@@ -1,3 +1,9 @@
+:root {
+  --intro-width: 450px;
+  --intro-ratio: (450/326.229);
+  --intro-height: calc(var(--intro-width) / var(--intro-ratio));
+  --nav-height: 75px;
+}
 *,
 *:before,
 *:after {
@@ -21,8 +27,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  padding: 12px;
+  padding: 0 12px;
   width: 100%;
+  min-height: var(--nav-height);
 }
 #contact-logos {
   align-items: flex-end;
@@ -40,10 +47,13 @@ nav img:hover {
 #main-logo {
   font-size: 32px;
 }
+#main-logo::selection {
+  color: #fff !important
+}
 #hamburger {
   display: flex;
 }
-.general-transistion {
+.general-transition {
   transition-timing-function: ease;
   transition-duration: 0.7s;
 }
@@ -125,7 +135,7 @@ main {
   /* margin: auto; */
   position: absolute;
   overflow: hidden;
-  top: calc(50vh - (326.229px/2));
+  top: calc(50vh - (var(--intro-height)/2));
 }
 #intro-initials-container img {
   position: absolute;
@@ -134,8 +144,8 @@ main {
 }
 #intro-initials-container img:first-child {
   animation: rotate 10s linear infinite;
-  height: 50vh;
-  width: 50vw;
+  width: var(--intro-width);
+  height: var(--intro-width);
 }
 
 @keyframes rotate {
@@ -152,10 +162,26 @@ main {
   background-size: cover;
 }
 .initial-dimentions {
-  width: 450px;
-  height: 326.229px;
+  width: var(--intro-width);
+  height: var(--intro-height);
 }
 .intro-text-white {
   position: absolute;
-  top: calc(50vh - (326.229px/2) - 82.7px);
+  top: calc(50vh - (var(--intro-height)/2) - var(--nav-height));
+}
+
+@media (max-width: 768px) {
+  :root {
+    --intro-width: 330px;
+    --nav-height: 68px;
+  }
+  #main-logo {
+    font-size: 28px;
+  }
+  nav img {
+    max-width: 32px;
+  }
+  .icon-container.github {
+    margin-right: 12px;
+  }
 }
