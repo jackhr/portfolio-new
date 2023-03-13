@@ -106,7 +106,7 @@ function initWelcomeType() {
     strings: "Welcome.",
     lifeLike: true,
     speed: 100,
-    cursorChar: '<img src="../assets/images/welcome-cursor.svg">',
+    cursorChar: '<img src="assets/images/welcome-cursor.svg">',
     afterComplete: async instance => instance.destroy()
   }).go();
 }
