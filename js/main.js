@@ -1,3 +1,7 @@
+const STATE = {
+  startedWelcome: false,
+};
+
 $(document).ready(function() {
   $("#intro").removeClass('no-scroll');
 });
@@ -35,6 +39,19 @@ $('#intro, main').on('touchstart', function(e) {
         $(this).remove();
         // Make main scrollable
         $("main").removeClass('no-scroll');
+
+        if (!STATE.startedWelcome) {
+          $(".intro-text-white").addClass('disappear');
+          
+          setTimeout(() => {
+            $(".intro-text-white").remove();
+            
+            initWelcomeType();
+          }, 2000);
+
+          STATE.startedWelcome = true;
+        }
+        
       }, 1500);
       return;
     }
@@ -82,3 +99,14 @@ $('#intro, main').on('touchstart', function(e) {
 
   
 });
+
+
+function initWelcomeType() {
+  new TypeIt("#welcome-text", { 
+    strings: "Welcome.",
+    lifeLike: true,
+    speed: 100,
+    cursorChar: '<img src="../assets/images/welcome-cursor.svg">',
+    afterComplete: async instance => instance.destroy()
+  }).go();
+}

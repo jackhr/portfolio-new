@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Menlo Regular';
+  font-style: normal;
+  font-weight: normal;
+  src:  local('Menlo Regular'),
+        url('../assets/fonts/Menlo.woff') format('woff'),
+        url('../assets/fonts/Menlo.ttc') format('truetype');
+}
+
 :root {
   --intro-width: 450px;
   --intro-ratio: (549/398);
@@ -169,6 +178,21 @@ main {
 .intro-text-white {
   position: absolute;
   top: calc(50vh - (var(--intro-height)/2) - var(--nav-height));
+  transition: width ease-in-out 2s;
+}
+.disappear {
+  width: 0px !important;
+}
+#welcome-text {
+  font-family: 'Menlo Regular';
+  color: #fff;
+  font-size: 64px;
+  display: flex;
+  align-items: center;
+}
+.ti-cursor {
+  position: relative;
+  left: 18px;
 }
 
 @media (max-width: 768px) {
