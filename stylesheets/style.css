@@ -1,6 +1,6 @@
 :root {
   --intro-width: 450px;
-  --intro-ratio: (450/326.229);
+  --intro-ratio: (549/398);
   --intro-height: calc(var(--intro-width) / var(--intro-ratio));
   --nav-height: 75px;
 }
