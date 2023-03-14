@@ -86,4 +86,4 @@ $('body').on('scroll', function() {
 
     $('body').off('scroll');
   }
-})
+});
