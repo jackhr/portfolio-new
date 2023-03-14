@@ -53,7 +53,11 @@ nav {
   width: 100%;
   min-height: var(--nav-height);
 }
+.nav-container {
+  width: 190px;
+}
 #contact-logos {
+  justify-content: flex-end;
   align-items: flex-end;
   display: flex;
 }
@@ -67,13 +71,21 @@ nav img:hover {
   margin-right: 24px;
 }
 #main-logo {
-  font-size: 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 }
-#main-logo::selection {
-  color: #fff !important
+#main-logo img {
+  max-width: 400px;
+  position: absolute;
+}
+#main-logo img:hover {
+  filter: unset;
 }
 #hamburger {
   display: flex;
+  width: max-content;
 }
 .general-transition {
   transition-timing-function: ease;
