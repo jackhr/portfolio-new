@@ -9,7 +9,7 @@ $(document).ready(function() {
 let lastY;
 $('#intro').on('touchstart', function(e) {
   lastY = e.originalEvent.touches[0].clientY;
-}).on('mousewheel DOMMouseScroll touchmove', function(e) {
+}).on('wheel mousewheel touchmove', function(e) {
   
   const mobileScroll = e.type === 'touchmove';
   const threshold = 120;
@@ -61,8 +61,29 @@ function initWelcomeType() {
       instance.destroy();
       $('#scroll-for-more').removeClass('hide');
       setTimeout(() => {
+        $('#scroll-for-more').toggleClass('oscillate');
         $('html, body').removeClass('no-scroll');
       }, 750);
     }
   }).go();
 }
+
+$('body').on('scroll', function() {
+  const scrollForMore = $('#scroll-for-more');
+  if (scrollForMore.hasClass('oscillate')) {
+
+    const val = scrollForMore
+      .css('transform')
+      .replaceAll(')', '')
+      .split(', ')
+      .slice(-1)[0];
+    
+    scrollForMore
+      .removeClass('oscillate')
+      .css('transform', `translateY(${val}px)`);
+
+    setTimeout(() => scrollForMore.css('transform', 'translateY(0px)'), 10);
+
+    $('body').off('scroll');
+  }
+})

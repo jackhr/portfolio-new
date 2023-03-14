@@ -217,7 +217,8 @@ main {
   justify-content: space-between;
   align-items: center;
   height: 64px;
-  transition: bottom ease-in-out 0.75s;
+  transform: translateY(0vh);
+  transition: transform ease-in-out 0.75s, bottom ease-in-out 0.75s;
 }
 #scroll-for-more.hide {
   bottom: -64px;
@@ -225,6 +226,30 @@ main {
 #scroll-for-more img {
   width: 98px;
   margin-top: 24px;
+}
+#scroll-for-more.oscillate {
+  animation: oscillate 4s ease-in-out infinite;
+}
+
+@keyframes oscillate {
+  0% {
+    transform: translateY(0vh);
+  }
+  15% {
+    transform: translateY(1vh);
+  }
+  25% {
+    transform: translateY(0vh);
+  }
+  35% {
+    transform: translateY(1vh);
+  }
+  45% {
+    transform: translateY(0vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
 }
 
 @media (max-width: 768px) {
