@@ -58,7 +58,7 @@ function initWelcomeType() {
     speed: 100,
     cursorChar: '<img src="assets/images/welcome-cursor.svg">',
     afterComplete: async (instance) => {
-      instance.destroy();
+      // instance.destroy();
       $('#scroll-for-more').removeClass('hide');
       setTimeout(() => {
         $('#scroll-for-more').toggleClass('oscillate');

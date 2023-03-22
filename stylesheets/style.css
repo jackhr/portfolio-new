@@ -56,6 +56,13 @@ nav {
 .nav-container {
   width: 190px;
 }
+.lottie-container {
+  position: absolute;
+  width: max-content;
+}
+lottie-player {
+  width: 420px;
+}
 #contact-logos {
   justify-content: flex-end;
   align-items: flex-end;
