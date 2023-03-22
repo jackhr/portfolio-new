@@ -11,6 +11,7 @@
   --intro-ratio: (549/398);
   --intro-height: calc(var(--intro-width) / var(--intro-ratio));
   --nav-height: 75px;
+  --hex-coral: #EE4A68;
 }
 *,
 *:before,
@@ -152,13 +153,75 @@ main {
   will-change: scroll-position;
 }
 .section {
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   transform: translateY(0px);
   transition: transform 1s cubic-bezier(0.15, 0.63, 0.38, 1);
 }
+.project.section {
+  justify-content: flex-start;
+  padding-left: 10%;
+  overflow-x: auto;
+}
+.project.section.project-playlist {
+  background-image: linear-gradient(122deg, #086E75 -20%, #002325 110%);
+}
+.project.section .inner-content {
+  display: flex;
+}
+.project-info-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 75px;
+}
+.chess.section .project-info-container {
+  margin-right: 140px;
+}
+.project-title {
+  font-family: 'Menlo Regular';
+  margin: 0;
+  font-size: 58px;
+  letter-spacing: 4px;
+}
+.project-info {
+  width: 475px;
+  line-height: 3rem;
+  font-size: 24px;
+  margin: 35px 0 75px;
+}
+.project-panel {
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 32px;
+}
+.chess.section .project-panel {
+  background: #CCE4F1;
+  height: 475px;
+  width: 475px;
+}
+.chess.section .project-panel img {
+  position: relative;
+  left: -65px;
+  width: 454px;
+}
+.project-link {
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.chess.section :where(.project-link, .project-link:active, .project-link:focus, .project-link:hover) {
+  color: var(--hex-coral);
+  text-decoration: none;
+}
+.project-content {
+  display: flex;
+}
+
 .white-bg {
   height: 100%;
   width: 100%;
@@ -201,6 +264,7 @@ main {
   background-size: cover;
   flex-direction: column;
   justify-content: flex-start;
+  height: calc(100vh - var(--nav-height));
 }
 .initial-dimentions {
   width: calc(var(--intro-width) + 2px) !important;
