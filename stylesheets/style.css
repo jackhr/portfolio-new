@@ -163,6 +163,9 @@ main {
 .project.section {
   justify-content: flex-start;
   padding-left: 10%;
+  overflow-x: hidden;
+}
+.project.section.scrolling {
   overflow-x: auto;
 }
 .project.section.project-playlist {

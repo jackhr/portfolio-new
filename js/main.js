@@ -2,8 +2,54 @@ const STATE = {
   startedWelcome: false,
 };
 
+$('body').on('scroll wheel DOMMouseScroll', function(evt) {
+
+  const sectionName = $(this).data('section');
+  const section = $(`.project.section.${sectionName}`);
+  const scrollLeft = section.scrollLeft();
+  const delta = evt.originalEvent.wheelDelta || -evt.originalEvent.detail;
+  
+  if (section.offset().top <= 0) {
+    $('body')
+      .addClass('no-scroll')
+      [0].scrollBy(0, section.offset().top);
+    section.addClass('scrolling')
+  }
+  if (section.hasClass('scrolling')) {
+    section.scrollLeft(((delta/4) - scrollLeft) * -1);
+  }
+  if (section.scrollLeft() == section.prop('scrollLeftMax') && delta < 0) {
+    // Reached the end
+    console.log('Reached the end');
+    let nextSection = section.data('next-section');
+    nextSection ||= section.data('project');
+    section
+      .removeClass('scrolling')
+      .scrollLeft(section.prop('scrollLeftMax'));
+
+    $('body')
+      .data('section', nextSection)
+      .removeClass('no-scroll');
+  } else if (section.scrollLeft() == 0 && delta > 0) {
+    // Reached the beginning
+    console.log('Reached the beginning');
+    let prevSection = section.data('prev-section');
+    prevSection ||= section.data('project');
+
+    section
+      .removeClass('scrolling')
+      .scrollLeft(0);
+
+    $('body')
+      .data('section', prevSection)
+      .removeClass('no-scroll');
+  }
+});
+
 $(document).ready(function() {
   $("#intro").removeClass('no-scroll');
+  $('body')[0].scrollBy(0, 0);
+  $('.project.section').scrollLeft(0);
 });
 
 let lastY;
@@ -68,7 +114,7 @@ function initWelcomeType() {
   }).go();
 }
 
-$('body').on('scroll', function() {
+$('body').on('scroll wheel DOMMouseScroll', function(evt) {
   const scrollForMore = $('#scroll-for-more');
   if (scrollForMore.hasClass('oscillate')) {
 
