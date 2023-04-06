@@ -12,6 +12,9 @@
   --intro-height: calc(var(--intro-width) / var(--intro-ratio));
   --nav-height: 75px;
   --hex-coral: #EE4A68;
+  --hex-violet: #CB77FF;
+  --hex-blue: #1F92FD;
+  --hex-green: #81E5A9;
 }
 *,
 *:before,
@@ -179,7 +182,7 @@ main {
   flex-direction: column;
   margin-right: 75px;
 }
-.chess.section .project-info-container {
+.section .project-info-container {
   margin-right: 140px;
 }
 .project-title {
@@ -202,10 +205,18 @@ main {
   justify-content: center;
   margin-right: 32px;
 }
-.chess.section .project-panel {
-  background: #CCE4F1;
+.section .project-panel {
   height: 475px;
   width: 475px;
+}
+.chess.section .project-panel {
+  background: #CCE4F1;
+}
+.project-playlist.section .project-panel, .job-tracker.section .project-panel {
+  background: #E5F3FF;
+}
+.photo-filter.section .project-panel {
+  background: #0C1832;
 }
 .chess.section .project-panel img {
   position: relative;
@@ -217,14 +228,36 @@ main {
   letter-spacing: 2px;
   font-weight: 600;
 }
+.project-link, .project-link:active, .project-link:focus, .project-link:hover {
+  text-decoration: none;
+}
 .chess.section :where(.project-link, .project-link:active, .project-link:focus, .project-link:hover) {
   color: var(--hex-coral);
-  text-decoration: none;
+}
+.project-playlist.section :where(.project-link, .project-link:active, .project-link:focus, .project-link:hover) {
+  color: var(--hex-violet);
+}
+.photo-filter.section :where(.project-link, .project-link:active, .project-link:focus, .project-link:hover) {
+  color: var(--hex-blue);
+}
+.job-tracker.section :where(.project-link, .project-link:active, .project-link:focus, .project-link:hover) {
+  color: var(--hex-green);
 }
 .project-content {
   display: flex;
 }
-
+.project-playlist.section {
+  background: url('/assets/images/project-playlist-bg.svg');
+  color: #fff;
+}
+.job-tracker.section {
+  background: url('/assets/images/job-tracker-bg.svg');
+  background-size: cover;
+  color: #fff;
+}
+.photo-filter.section {
+  color: var(--hex-blue);
+}
 .white-bg {
   height: 100%;
   width: 100%;
